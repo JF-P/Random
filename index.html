@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description"
+          content="Generate a number and I'll read it out for you! Perfect for classroom, lottery, and more!"/>
+
+    <title>RandomRandom.org - Random Number Generator That Reads!</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <style type='text/css'>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1 {
+            display: inline;
+        }
+
+        a {
+            color: #A2C523;
+        }
+
+        input {
+            font-size: 18px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width">
+
+    <script type="text/javascript">
+        function calc() {
+            var min = document.getElementById('min').value;
+            var max = document.getElementById('max').value;
+            var x = Math.floor(Math.random() * (max - min) + max);
+            document.getElementById('random').innerHTML = x;
+            var msg = new SpeechSynthesisUtterance("The drawn number is " + x);
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+</head>
+<body background="http://www.designbolts.com/wp-content/uploads/2012/12/Skeletal-Weave-White-Tileable-pattern-for-website-background.jpg">
+<center>
+    <br><br>
+    <font color="#486B00"><h1>RandomRandom.org</h1> BETA</font>
+    <font color="#7D4427"><h2>Meet the random number generator that reads!</h2></font>
+    <font size=30pt><h1 id='random'>0</h1></font><br><br>
+
+    Minimum&nbsp;&nbsp;<input type='text' id='min' value="0"/><br><br>
+    Maximum&nbsp;&nbsp;<input type='text' id='max' value="100"/><br><br>
+    <input type='button' onClick='calc()' value='Generate'/><br><br>
+    Click the Generate button above to generate a number and I'll read it out for you.<br><br>
+</center>
+</body>
+</html>
